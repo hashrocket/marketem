@@ -18,8 +18,16 @@ feature "User manages contacts", %q{
                    birth_date: 43.years.ago)
 
     visit contacts_path
+    page.should_not have_css ".msg_warning"
     ['John McClane', '43', '904-123-1234', 'Male', 'FL'].each do |val|
       page.should have_content val
+    end
+  end
+
+  scenario "User views empty contacts page" do
+    visit contacts_path
+    within ".msg_warning" do
+      page.should have_content "contacts yet"
     end
   end
 
