@@ -17,7 +17,8 @@ feature "User manages contacts", %q{
                    female: false,
                    birth_date: 43.years.ago)
 
-    visit contacts_path
+    visit root_path
+    click_link "Contacts"
     page.should_not have_css ".msg_warning"
     ['John McClane', '43', '904-123-1234', 'Male', 'FL'].each do |val|
       page.should have_content val

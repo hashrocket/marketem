@@ -13,4 +13,7 @@
       %section.container
         %h1.logo
           =link_to("Marketem", root_path)
+        %nav
+          %ul
+            %li= active_link_to "Contacts", contacts_path
     = yield
