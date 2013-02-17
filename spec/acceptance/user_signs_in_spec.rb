@@ -3,8 +3,7 @@ require 'acceptance_helper'
 feature "User signs in" do
 
   scenario "Sign in to campaigns page" do
-    page.driver.browser.basic_authorize(ENV["BASIC_AUTH_NAME"],
-                                        ENV["BASIC_AUTH_PASSWORD"])
+    sign_in
     visit "/"
     page.should have_content 'Campaigns'
   end
