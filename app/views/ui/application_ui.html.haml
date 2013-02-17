@@ -12,5 +12,14 @@
     %header
       %section.container
         %h1.logo
-          =link_to("Marketem", root_path)
+          =link_to("Marketem", "#")
+        %nav
+          %ul
+            %li=link_to("Campaigns", "#", class: "active")
+            %li=link_to("Recipients", "#")
+
+        .userlogout
+          =link_to("Sign Out", "#")
+          %span Alex Tucker
+
     = yield
