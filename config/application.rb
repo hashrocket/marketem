@@ -64,5 +64,10 @@ module Marketem
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.assets.precompile = [ /\w+\.(?!css).+/,
+                                 /application.css$/,
+                                 /\w+\.(?!sass).+/,
+                                 'html5.js' ]
   end
 end
