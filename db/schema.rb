@@ -11,13 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211170853) do
+ActiveRecord::Schema.define(:version => 20130217184758) do
 
   create_table "contacts", :force => true do |t|
-    t.string  "first_name"
-    t.string  "last_name"
-    t.boolean "female"
-    t.string  "zip_code"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "state"
+    t.boolean  "female"
+    t.date     "birth_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

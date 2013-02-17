@@ -1,0 +1,26 @@
+.container.heading
+  %h1 Recipients
+
+.bodycontent
+  %section.container
+
+    .tablewrapper.rindex
+      %table
+        %tr
+          %th
+            Contact
+          %th(width="50")
+            Age
+          %th(width="70")
+            Gender
+          %th(width="130")
+            Phone Number
+          %th
+            State
+        - contacts.each do |contact|
+          %tr
+            %td= contact.name
+            %td= contact.age
+            %td= contact.gender
+            %td= contact.phone
+            %td= contact.state
