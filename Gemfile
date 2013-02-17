@@ -4,6 +4,7 @@ gem 'decent_exposure'
 gem 'haml'
 gem 'jquery-rails'
 gem 'pg'
+gem 'phony'
 gem 'rails', '3.2.11'
 
 group :assets do
