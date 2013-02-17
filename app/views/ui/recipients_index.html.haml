@@ -1,0 +1,36 @@
+.container.heading
+  %h1 Recipients
+  =link_to("Add a Recipient", "#", class: "addbutton")
+
+.bodycontent
+  %section.container
+
+    .msg_warning
+      You don&rsquo;t have any recipients yet.
+      =link_to("Add some recipients now!", "#")
+
+    .tablewrapper.rindex
+      %table
+        %tr
+          %th
+            Recipient
+          %th(width="50")
+            Age
+          %th(width="70")
+            Gender
+          %th(width="130")
+            Phone Number
+          %th
+            State
+        - 3.times do
+          %tr
+            %td
+              =link_to("Fictional Person", "#")
+            %td
+              35
+            %td
+              Male
+            %td
+              352-444-1111
+            %td
+              FL
