@@ -1,33 +1,32 @@
-.container.heading
+= page_heading do
   %h1
     Add a Contact
     %span All fields are required.
 
-.bodycontent
-  %section.container
+= page_body do
 
-    = form_for contact do |f|
-      %ul
-        %li
-          = f.label :name, "Full Name"
-          = f.text_field :name
-        %li.clear
-          = f.label :phone, "Phone Number"
-          = f.text_field :phone, class: 'half'
-        %li
-          = f.label :state
-          = f.select :state, US_STATES
-        %li.clear
-          = f.label :female, "Gender"
-          = f.select :female, [['Male', false], ['Female', true]]
-        %li
-          = f.label :birth_date
-          = f.date_select :birth_date,
-            order: [:month, :day, :year],
-            start_year: 13.years.ago.year,
-            end_year: 100.years.ago.year,
-            selected:  13.years.ago.year
+  = form_for contact do |f|
+    %ul
+      %li
+        = f.label :name, "Full Name"
+        = f.text_field :name
+      %li.clear
+        = f.label :phone, "Phone Number"
+        = f.text_field :phone, class: 'half'
+      %li
+        = f.label :state
+        = f.select :state, US_STATES
+      %li.clear
+        = f.label :female, "Gender"
+        = f.select :female, [['Male', false], ['Female', true]]
+      %li
+        = f.label :birth_date
+        = f.date_select :birth_date,
+          order: [:month, :day, :year],
+          start_year: 13.years.ago.year,
+          end_year: 100.years.ago.year,
+          selected:  13.years.ago.year
 
-      .savecancel
-        = f.submit "Save", class: 'save'
-        %input(type="reset" value="Reset" class="cancel")
+    .savecancel
+      = f.submit "Save", class: 'save'
+      %input(type="reset" value="Reset" class="cancel")

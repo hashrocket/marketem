@@ -7,4 +7,14 @@ module ApplicationHelper
     link_to text, path, options
   end
 
+  def page_heading(&block)
+    content_tag :div, capture(&block), class: 'container heading'
+  end
+
+  def page_body(&block)
+    content_tag :div, class: 'bodycontent' do
+      content_tag :section, capture(&block), class: 'container'
+    end
+  end
+
 end

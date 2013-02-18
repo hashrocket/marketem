@@ -1,34 +1,33 @@
-.container.heading
+= page_heading do
   %h1 Contacts
   =link_to("Add a Contact", new_contact_path, class: "addbutton")
 
-.bodycontent
-  %section.container
+= page_body do
 
-    = render "layouts/shared_flash"
+  = render "layouts/shared_flash"
 
-    - if contacts.empty?
-      .msg_warning
-        You don&rsquo;t have any contacts yet.
-        = link_to("Add some contacts now!", new_contact_path)
-    - else
-      .tablewrapper.rindex
-        %table
+  - if contacts.empty?
+    .msg_warning
+      You don&rsquo;t have any contacts yet.
+      = link_to("Add some contacts now!", new_contact_path)
+  - else
+    .tablewrapper.rindex
+      %table
+        %tr
+          %th
+            Contact
+          %th(width="50")
+            Age
+          %th(width="70")
+            Gender
+          %th(width="130")
+            Phone Number
+          %th
+            State
+        - decorated_contacts.each do |contact|
           %tr
-            %th
-              Contact
-            %th(width="50")
-              Age
-            %th(width="70")
-              Gender
-            %th(width="130")
-              Phone Number
-            %th
-              State
-          - decorated_contacts.each do |contact|
-            %tr
-              %td= contact.name
-              %td= contact.age
-              %td= contact.gender
-              %td= contact.phone
-              %td= contact.state
+            %td= contact.name
+            %td= contact.age
+            %td= contact.gender
+            %td= contact.phone
+            %td= contact.state
