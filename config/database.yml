@@ -7,3 +7,4 @@ test:
   adapter: postgresql
   encoding: unicode
   database: marketem_test
+  min_messages: warning
