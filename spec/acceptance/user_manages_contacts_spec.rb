@@ -11,11 +11,12 @@ feature "User manages contacts", %q{
   end
 
   scenario "User views contacts" do
-    Contact.create(name: "John McClane",
-                   phone: "19041231234",
-                   state: "FL",
-                   female: false,
-                   birth_date: 43.years.ago)
+    Contact.create(
+      name: "John McClane",
+      phone: "19041231234",
+      state: "FL",
+      female: false,
+      birth_date: 43.years.ago)
 
     visit root_path
     click_link "Contacts"
