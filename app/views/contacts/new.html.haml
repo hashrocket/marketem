@@ -15,7 +15,7 @@
         = f.text_field :phone, class: 'half'
       %li
         = f.label :state
-        = f.select :state, US_STATES
+        = f.select :state, US_STATES, prompt: "select state"
       %li.clear
         = f.label :female, "Gender"
         = f.select :female, [['Male', false], ['Female', true]]

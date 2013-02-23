@@ -6,6 +6,8 @@ class ContactsController < ApplicationController
   def create
     if contact.save
       redirect_to contacts_path, notice: "Hooray! Your contact was successfully added."
+    else
+      render :new
     end
   end
 
