@@ -9,12 +9,10 @@
   .tablewrapper
     %table
       %tr
-        %th
-          Campaign
-        %th
-          Created
-        %th
+        - %w[Campaign Recipients Created].each do |header|
+          %th= header
       - campaigns.each do |campaign|
         %tr
           %td= link_to campaign.name, edit_campaign_path(campaign)
+          %td= pluralize(campaign.contacts.count, 'Recipient')
           %td= campaign.created_at.strftime("%m/%d/%Y")

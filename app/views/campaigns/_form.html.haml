@@ -9,6 +9,17 @@
     %dt= f.label :message
     %dd= f.text_area :message
 
+  %section.addrecipients
+    %h1 Add Recipients to this Campaign
+
+    .filter
+      %h2 Filter Recipients
+
+      %ul
+        %li
+          = f.label :state
+          = f.select :state, US_STATES
+
   .savecancel
     = f.submit "Save", class: 'save'
     %input(type="reset" value="Reset" class="cancel" value="Cancel")

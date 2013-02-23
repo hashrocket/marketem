@@ -13,4 +13,14 @@ describe Campaign do
   it "requires a message" do
     Campaign.new.should have(1).errors_on(:message)
   end
+
+  describe "#overwrite_recipients_with" do
+    let(:contacts) { stub 'contacts' }
+    let(:campaign) { Campaign.new }
+    it "it sets the contacts and saves" do
+      campaign.should_receive(:contacts=, with: contacts)
+      campaign.should_receive(:save)
+      campaign.overwrite_recipients_with(contacts)
+    end
+  end
 end

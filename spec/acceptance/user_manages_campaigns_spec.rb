@@ -23,31 +23,37 @@ feature "User manages campaigns", %q{
   end
 
   scenario "User views campaigns" do
-    campaign = Campaign.create(
-      name: "Cola Campaign",
-      postback_url: "http://cola-corp.com",
-      message: "Bet you'd like a frosty cola!"
-    )
+    campaign = cola_campaign
     campaign.update_attribute(:created_at, '2013-02-20')
-
     visit campaigns_path
     page.should have_content 'Cola Campaign'
     page.should have_content '02/20/2013'
   end
 
   scenario "User edits campaign" do
-    campaign = Campaign.create(
-      name: "Cola Campaign",
-      postback_url: "http://cola-corp.com",
-      message: "Bet you'd like a frosty cola!"
-    )
-
+    cola_campaign
     visit campaigns_path
     click_link "Cola Campaign"
     fill_in "Campaign Name", with: "Juice Campaign"
     click_button "Save"
     page.should have_content "Juice Campaign"
     page.should_not have_content "Cola Campaign"
+  end
+
+  scenario "User adds recipients by state" do
+    Fabricate(:contact, state: "FL")
+    Fabricate(:contact, state: "NY")
+    visit edit_campaign_path(cola_campaign)
+    select "Florida", from: "State"
+    click_button "Save"
+    page.should have_content "1 Recipient"
+  end
+
+  def cola_campaign
+    Campaign.create(
+      name: "Cola Campaign",
+      postback_url: "http://cola-corp.com",
+      message: "Bet you'd like a frosty cola!")
   end
 
 end

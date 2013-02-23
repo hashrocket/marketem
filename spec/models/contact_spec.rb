@@ -1,5 +1,6 @@
 require 'active_record_spec_helper'
 require 'contact'
+require 'contact_fabricator'
 
 describe Contact do
   it "requires a name" do
@@ -16,5 +17,13 @@ describe Contact do
 
   it "requires a birth date" do
     Contact.new.should have(1).errors_on(:birth_date)
+  end
+
+  describe ".by_state" do
+    it "returns contacts for a provided state" do
+      contact1 = Fabricate(:contact, state: "FL")
+      contact2 = Fabricate(:contact, state: "NY")
+      Contact.by_state("FL").should == [contact1]
+    end
   end
 end
