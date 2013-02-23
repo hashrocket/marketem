@@ -1,3 +1,4 @@
 --color
 -I app/decorators
 -I app/models
+-I spec/fabricators
