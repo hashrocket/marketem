@@ -13,6 +13,7 @@ group :assets do
 end
 
 group :test, :development do
+  gem 'fabrication'
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'

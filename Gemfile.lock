@@ -46,6 +46,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fabrication (2.6.1)
     ffi (1.4.0)
     haml (4.0.0)
       tilt
@@ -147,6 +148,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   decent_exposure
+  fabrication
   haml
   jquery-rails
   launchy
