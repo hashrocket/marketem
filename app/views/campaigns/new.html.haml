@@ -1,0 +1,20 @@
+= page_heading do
+  %h1
+    Add Campaign
+    %span All fields are required.
+
+= page_body do
+  = form_for campaign, html: { class: 'addcampaign' } do |f|
+    %dl.marginright
+      %dt= f.label :name, "Campaign Name"
+      %dd= f.text_field :name
+    %dl
+      %dt= f.label :postback_url, "Postback URL"
+      %dd= f.text_field :postback_url
+    %dl.clear
+      %dt= f.label :message
+      %dd= f.text_area :message
+
+    .savecancel
+      = f.submit "Save", class: 'save'
+      %input(type="reset" value="Reset" class="cancel" value="Cancel")

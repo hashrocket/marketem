@@ -1,2 +1,7 @@
 = page_heading do
   %h1 Campaigns
+  =link_to("Create a Campaign", new_campaign_path, class: "addbutton")
+
+= page_body do
+
+  = render "layouts/shared_flash"
