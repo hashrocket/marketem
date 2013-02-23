@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'phony'
 gem 'rails', '3.2.11'
+gem 'twilio-ruby'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
