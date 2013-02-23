@@ -11,4 +11,12 @@ class CampaignsController < ApplicationController
     end
   end
 
+  def update
+    if campaign.save
+      redirect_to campaigns_path, notice: "<strong>Hooray!</strong> Your campaign was successfully saved".html_safe
+    else
+      render :edit
+    end
+  end
+
 end

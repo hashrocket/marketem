@@ -16,5 +16,5 @@
         %th
       - campaigns.each do |campaign|
         %tr
-          %td= campaign.name
+          %td= link_to campaign.name, edit_campaign_path(campaign)
           %td= campaign.created_at.strftime("%m/%d/%Y")

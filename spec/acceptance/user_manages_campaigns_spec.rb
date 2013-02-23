@@ -35,4 +35,19 @@ feature "User manages campaigns", %q{
     page.should have_content '02/20/2013'
   end
 
+  scenario "User edits campaign" do
+    campaign = Campaign.create(
+      name: "Cola Campaign",
+      postback_url: "http://cola-corp.com",
+      message: "Bet you'd like a frosty cola!"
+    )
+
+    visit campaigns_path
+    click_link "Cola Campaign"
+    fill_in "Campaign Name", with: "Juice Campaign"
+    click_button "Save"
+    page.should have_content "Juice Campaign"
+    page.should_not have_content "Cola Campaign"
+  end
+
 end
