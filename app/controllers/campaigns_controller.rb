@@ -1,5 +1,6 @@
 class CampaignsController < ApplicationController
 
+  expose(:campaigns)
   expose(:campaign)
 
   def create

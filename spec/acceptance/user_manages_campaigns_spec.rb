@@ -22,4 +22,17 @@ feature "User manages campaigns", %q{
     page.should have_content "Hooray! Your campaign was successfully added"
   end
 
+  scenario "User views campaigns" do
+    campaign = Campaign.create(
+      name: "Cola Campaign",
+      postback_url: "http://cola-corp.com",
+      message: "Bet you'd like a frosty cola!"
+    )
+    campaign.update_attribute(:created_at, '2013-02-20')
+
+    visit campaigns_path
+    page.should have_content 'Cola Campaign'
+    page.should have_content '02/20/2013'
+  end
+
 end

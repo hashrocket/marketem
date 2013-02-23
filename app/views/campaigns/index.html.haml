@@ -5,3 +5,16 @@
 = page_body do
 
   = render "layouts/shared_flash"
+
+  .tablewrapper
+    %table
+      %tr
+        %th
+          Campaign
+        %th
+          Created
+        %th
+      - campaigns.each do |campaign|
+        %tr
+          %td= campaign.name
+          %td= campaign.created_at.strftime("%m/%d/%Y")
