@@ -20,6 +20,8 @@
           = f.label :state
           = f.select :state, US_STATES
 
+  =link_to("Run Campaign", "#", class: "greenbutton")
+
   .savecancel
     = f.submit "Save", class: 'save'
     %input(type="reset" value="Reset" class="cancel" value="Cancel")

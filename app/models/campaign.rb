@@ -6,7 +6,7 @@ class Campaign < ActiveRecord::Base
   has_many :contacts, through: :campaign_recipients
 
   def overwrite_recipients_with(contacts)
-    self.contacts = contacts
+    self.contacts = Array.wrap(contacts)
     save
   end
 end
