@@ -13,6 +13,8 @@ group :assets do
 end
 
 group :test, :development do
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
   gem 'fabrication'
   gem 'capybara'
   gem 'launchy'
