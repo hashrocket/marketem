@@ -1,3 +1,6 @@
+= content_for :head do
+  = javascript_include_tag "highcharts", "graph"
+
 .container.heading
   %h1.lesspadding Campaign Report
 
@@ -7,9 +10,4 @@
 
 .bodycontent
   %section.container
-    %p See reports by
-    %select
-      %option Select
-      %option Age
-      %option City
-      %option Gender
+    #container{ style: "width: 800px; height: 400px; margin: 0 auto;", data: { categories: [ '0-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65+' ], male_responses: [ 80, 70, 15, 35, 34, 54, 66], female_responses: [50, 30, 20, 34, 65, 56, 88] } }
