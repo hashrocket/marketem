@@ -8,6 +8,8 @@
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    = yield :head
+
   %body
     %header
       %section.container
