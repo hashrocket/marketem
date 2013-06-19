@@ -1,0 +1,412 @@
+@import 'mixins'
+
+*
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+  width: 100%
+
+=th
+  border-bottom: 1px solid #e7e8e6
+  font-size: 12px
+  font-weight: normal
+  color: #696969
+  text-align: left
+
+=button
+  font-weight: bold
+  text-align: center
+  display: block
+  +border-radius(3px)
+
+=msg($color, $icon)
+  background: $color url("/assets/icon_#{$icon}.png") 16px 12px no-repeat
+  border: 1px solid darken($color, 20%)
+  padding: 15px
+  margin-bottom: 20px
+  padding-left: 55px
+  +border-radius(3px)
+  a
+    color: #0d6ea6
+    font-weight: bold
+    &:hover
+      color: darken(#0d6ea6, 10%)
+
+.clear
+  clear: both
+
+body
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  color: #363639
+
+a
+  color: #0d6ea6
+  text-decoration: none
+  &:hover
+    color: darken(#0d6ea6, 10%)
+
+header
+  background: #363639
+  height: 48px
+  margin-bottom: 25px
+  h1.logo
+    background: url("/assets/logo_marketem.png") no-repeat
+    display: block
+    float: left
+    width: 109px
+    height: 30px
+    margin-top: 10px
+    text-indent: -9999px
+    a
+      display: block
+      width: 109px
+      height: 30px
+      &:hover
+        color: #ffffff
+  nav
+    float: left
+    margin-left: 20px
+    ul
+      li
+        display: inline-block
+        a
+          font-size: 12px
+          font-weight: bold
+          color: #a1a1a1
+          display: block
+          padding: 16px
+          &:hover
+            color: #ffffff
+            background: #454549
+          &.active
+            color: #ffffff
+            background: #454549
+            border-bottom: 5px solid #bad53d
+            padding-bottom: 17px
+  .userlogout
+    float: right
+    span
+      display: block
+      float: right
+      background: url("/assets/icon_person_gray.png") center left no-repeat
+      font-size: 11px
+      font-weight: bold
+      color: #a1a1a1
+      padding-left: 12px
+      margin: 15px 15px 0 0
+    a
+      font-size: 11px
+      line-height: 14px
+      color: #363639
+      padding: 5px 10px
+      float: right
+      background: #b5c27a
+      margin-top: 10px
+      +button
+      &:hover
+        background: lighten(#b5c27a, 10%)
+
+.container
+  margin: 0 auto
+  width: 920px
+
+.heading
+  h1
+    clear: both
+    float: left
+    font-size: 34px
+    font-weight: bold
+    color: #363639
+    padding-bottom: 20px
+    &.lesspadding
+      padding-bottom: 13px
+    span
+      font-size: 16px
+      color: #7e7c7c
+      padding-left: 5px
+  p
+    clear: both
+    margin-bottom: 15px
+  a.addbutton
+    font-size: 14px
+    line-height: 18px
+    color: #363639
+    background: #b4d618
+    padding: 10px 14px
+    float: right
+    +button
+    &:hover
+      background: lighten(#b4d618, 10%)
+
+.bodycontent
+  clear: both
+  overflow: hidden
+  margin-bottom: 40px
+  background: #f8f8f7
+  border-top: 1px solid #eaeaed
+  border-bottom: 1px solid #eaeaed
+  padding: 20px 0
+  p
+    font-size: 12px
+    color: #363639
+    float: left
+    padding: 4px 10px 0 0
+  .msg_success
+    +msg(#ebf3c7, checkmark)
+  .msg_warning
+    +msg(#f7f9d2, warningsign)
+  form
+    dl, ul
+      font-size: 12px
+      font-weight: bold
+      color: #514f4f
+      float: left
+      margin-bottom: 10px
+      width: 450px
+      &.marginright
+        margin-right: 20px
+    dd, li
+      margin-bottom: 10px
+    li
+      float: left
+      &.clear
+        margin-right: 20px
+    label
+      display: block
+      margin-bottom: 3px
+      &.error
+        color: #d54f3d
+    input[type="text"], textarea
+      font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif
+      color: #707070
+      border: 1px solid #dbdbde
+      padding: 8px
+      outline: 0
+      margin: 0
+      +border-radius(3px)
+      &:focus
+        color: #514f4f
+        +box-shadow(0 0 5px #e4f0ae)
+      &.error_input
+        border: 1px solid #d54f3d
+        &:focus
+          +box-shadow(0 0 5px #ffe2e2)
+    input[type="text"], textarea
+      width: 450px
+      max-width: 450px
+      &.half
+        width: 215px
+    textarea
+      height: 100px
+      max-height: 100px
+    #gender
+      width: 215px
+  .addrecipients, .recipients
+    float: left
+    width: 450px
+    background: #ffffff
+    border: 1px solid #dbdbde
+    margin-bottom: 20px
+    padding: 10px
+    +border-radius(3px)
+    table
+      margin-bottom: 10px
+      th
+        +th
+        border-top: 1px solid #e7e8e6
+        padding: 5px 3px 5px 8px
+        &:first-child
+          width: 14px
+        &:nth-child(2)
+          width: 240px
+      td
+        font-size: 12px
+        color: #505053
+        padding: 5px 3px 5px 8px
+        &:nth-child(2)
+          font-weight: bold
+    h1
+      display: block
+      font-size: 16px
+      margin: 0 0 10px 6px
+      padding-left: 25px
+  .addrecipients
+    clear: left
+    margin-right: 20px
+    a
+      clear: both
+      display: block
+      font-size: 12px
+      line-height: 23px
+      font-weight: bold
+      color: #ffffff
+      text-align: center
+      padding: 5px
+      +border-radius(3px)
+    h1
+      background: url("/assets/icon_plus.png") 2px 4px no-repeat
+    h2
+      font-size: 14px
+      color: #4a4a4f
+      margin: 0 0 10px 10px
+    .filter
+      background: #f2f6e8
+      border-top: 1px solid #e4ead7
+      border-bottom: 1px solid #e4ead7
+      margin: 0 0 10px -10px
+      padding: 10px 20px
+      width: 448px
+      h2
+        margin-left: 0
+      ul
+        overflow: hidden
+        margin-bottom: 10px
+        li
+          font-size: 12px
+          color: #505053
+          display: inline-block
+          margin: 0 10px 0 0
+          p
+            margin-bottom: 5px
+            font-weight: normal
+            padding: 0
+            float: none
+          label
+            display: block
+            font-weight: normal
+            margin-bottom: 3px
+          input[type="checkbox"] + label
+            display: inline-block
+            margin-right: 10px
+      a
+        background: #707070
+        width: 70px
+        &:hover
+          background: darken(#707070, 10%)
+    .add
+      background: #505053
+      margin-left: 10px
+      width: 105px
+      &:hover
+        background: darken(#505053, 10%)
+
+  .recipients
+    h1
+      background: url("/assets/icon_person_lg.png") 2px 4px no-repeat
+    table
+      td
+        .remove
+          background: #868686 url("/assets/icon_x.png") 4px 3px no-repeat
+          display: block
+          text-indent: -9999px
+          margin-top: 1px
+          height: 14px
+          width: 14px
+          +border-radius(3px)
+          &:hover
+            background-color: #d54f3d
+
+  .msg_sm
+    clear: both
+    font-size: 14px
+    width: 450px
+
+  .warning
+    font-weight: bold
+    +msg(#f7f9d2, warningsign_sm)
+    padding: 12px
+    padding-left: 55px
+
+  .greenbutton
+    font-size: 14px
+    color: #363639
+    background: #b4d618
+    clear: both
+    padding: 10px 30px
+    width: 160px
+    margin-bottom: 10px
+    +button
+    &:hover
+      background: lighten(#b4d618, 10%)
+
+.tablewrapper
+  background: #ffffff
+  border: 1px solid #dbdbde
+  padding: 15px
+  +border-radius(3px)
+  table
+    tr
+      th
+        +th
+        padding: 5px 0
+        &:first-child
+          width: 455px
+          padding-left: 10px
+      td
+        font-size: 14px
+        color: #7b7b7b
+        padding: 5px 0 2px
+        &:first-child
+          font-weight: bold
+          color: #0d6ea6
+          padding: 5px
+          padding-left: 10px
+        &:nth-child(2)
+          color: #363638
+        a.bluebutton
+          background: #0d6ea6
+          font-size: 10px
+          line-height: 23px
+          color: #ffffff
+          padding: 0 5px
+          width: 75px
+          +button
+          &:hover
+            background: darken(#0d6ea6, 10%)
+
+.rindex
+  table
+    tr
+      td
+        color: #363638
+
+.savecancel
+  clear: both
+  float: left
+
+.save, .cancel
+  font: 12px/23px "Helvetica Neue", Helvetica, Arial, sans-serif
+  float: left
+  cursor: pointer
+  border: 0
+  margin-right: 10px
+  padding: 5px 15px
+  +button
+
+.save
+  color: #363639
+  background: #cedd8b
+  &:hover
+    background: darken(#cedd8b, 10%)
+
+.cancel
+  color: #606068
+  background: #c8c8cf
+  &:hover
+    background: darken(#c8c8cf, 5%)
+
+.delete
+  font-size: 12px
+  line-height: 23px
+  color: #ffffff
+  background: #d54f3d
+  padding: 5px 15px
+  float: right
+  +button
+  &:hover
+    color: #ffffff
+    background: darken(#d54f3d, 10%)

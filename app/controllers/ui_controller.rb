@@ -1,0 +1,1 @@
+class UiController < ApplicationController ; end

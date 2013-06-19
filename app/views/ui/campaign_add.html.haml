@@ -1,0 +1,97 @@
+.container.heading
+  %h1
+    Add Campaign
+    %span All fields are required.
+
+.bodycontent
+  %section.container
+
+    %form.addcampaign
+      %dl.marginright
+        %dt
+          %label(for="campaign_name") Campaign Name
+        %dd
+          %input(type="text")
+      %dl
+        %dt
+          %label Postback URL
+        %dd
+          %input(type="text")
+      %dl.clear
+        %dt
+          %label Message
+        %dd
+          %textarea
+
+      %section.addrecipients
+        %h1 Add Recipients to this Campaign
+
+        .filter
+          %h2 Filter Recipients
+
+          %ul
+            %li
+              %label State
+              %select
+                %option Select
+            %li
+              %label Age
+              %select
+                %option Age
+            %li
+              %p Gender
+              %input(type="checkbox")
+              %label Male
+              %input(type="checkbox")
+              %label Female
+
+          =link_to("Update", "#" )
+
+        %h2 2 Results
+        %table
+          %tr
+            %th
+              %input(type="checkbox")
+            %th Name
+            %th Age
+            %th Gender
+            %th State
+          %tr
+          - 3.times do
+            %tr
+              %td
+                %input(type="checkbox")
+              %td Josephine Jehosephat
+              %td 35
+              %td Female
+              %td FL
+        =link_to("Add Selected", "#", class: "add")
+
+      %section.recipients
+        %h1 5 Recipients for this Campaign
+        %table
+          %tr
+            %th
+            %th Name
+            %th Age
+            %th Gender
+            %th State
+          - 3.times do
+            %tr
+              %td
+                =link_to("Remove", "#", class: "remove")
+              %td Wesley Cunningham
+              %td 52
+              %td Male
+              %td GA
+
+      .msg_sm.warning
+        You need to add recipients before you can run this campaign.
+
+      =link_to("Run Campaign", "#", class: "greenbutton")
+
+      .savecancel
+        %input(type="submit" value="Save" class="save" value="Save")
+        %input(type="reset" value="Reset" class="cancel" value="Cancel")
+
+      =link_to("Delete Campaign", "#", class: "delete")

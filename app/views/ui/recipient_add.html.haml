@@ -1,0 +1,39 @@
+.container.heading
+  %h1
+    Add a Recipient
+    %span All fields are required.
+
+.bodycontent
+  %section.container
+
+    %form
+      %ul
+        %li
+          %label Full Name
+          %input(type="text")
+        %li.clear
+          %label Phone Number
+          %input(type="text" class="half")
+        %li
+          %label.error ZIP Code can&rsquo;t be blank.
+          %input(type="text" class="half error_input")
+        %li.clear
+          %label Gender
+          %select(id="gender")
+            %option Select
+            %option Female
+            %option Male
+        %li
+          %label Birthdate
+          %select
+            %option Month
+          %select
+            %option Day
+          %select
+            %option Year
+
+      .savecancel
+        %input(type="submit" value="Save" class="save")
+        %input(type="reset" value="Reset" class="cancel")
+
+      =link_to("Delete Recipient", "#", class: "delete")
