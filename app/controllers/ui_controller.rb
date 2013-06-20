@@ -1,1 +1,1 @@
-class UiController < ApplicationController ; end
+class UiController < ApplicationController; end

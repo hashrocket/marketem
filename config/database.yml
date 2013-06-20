@@ -3,16 +3,12 @@ development:
   encoding: unicode
   database: marketem_development
   pool: 5
-  username:
-  password:
 
 test: &test
   adapter: postgresql
   encoding: unicode
   database: marketem_test
   pool: 5
-  username:
-  password:
 
 cucumber:
   <<: *test

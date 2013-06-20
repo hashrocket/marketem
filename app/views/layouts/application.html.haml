@@ -9,17 +9,4 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %header
-      %section.container
-        %h1.logo
-          =link_to("Marketem", "#")
-        %nav
-          %ul
-            %li=link_to("Campaigns", "#", class: "active")
-            %li=link_to("Recipients", "#")
-
-        .userlogout
-          =link_to("Sign Out", "#")
-          %span Alex Tucker
-
     = yield

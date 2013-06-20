@@ -1,0 +1,95 @@
+<script type="text/x-handlebars">
+  <header>
+    <section class="container">
+      <h1 class="logo">{{#linkTo 'index'}}Marketem{{/linkTo}}</h1>
+      <nav>
+        <ul>
+          <li>{{#linkTo 'recipients'}}Recipients{{/linkTo}}</li>
+        </ul>
+      </nav>
+    </section>
+  </header>
+  <div class="container heading">
+    {{outlet 'heading'}}
+  </div>
+  <div class="bodycontent">
+    <section class='container'>
+      {{outlet}}
+    </section>
+  <div>
+</script>
+
+<script type="text/x-handlebars" id="recipients_heading">
+  <h1>Recipients</h1>
+  {{#linkTo 'recipients.new' classNames="addbutton"}}Add a Recipient{{/linkTo}}
+</script>
+
+<script type="text/x-handlebars" id="recipients/index">
+  <div class='tablewrapper rindex'>
+    <table>
+      <tr>
+        <th>
+          Recipient
+        </th>
+        <th width='70'>
+          Gender
+        </th>
+        <th width='130'>
+          Phone Number
+        </th>
+        <th>
+          State
+        </th>
+      </tr>
+      {{#each model}}
+        <tr>
+          <td>
+            <a href="#">{{fullName}}</a>
+          </td>
+          <td>
+            {{gender}}
+          </td>
+          <td>
+            {{phone}}
+          </td>
+          <td>
+            {{state}}
+          </td>
+        </tr>
+      {{/each}}
+    </table>
+  </div>
+</script>
+
+<script type="text/x-handlebars" id="add_recipient_heading">
+  <h1>
+    Add a Recipient
+    <span>All fields are required.</span>
+  </h1>
+</script>
+
+<script type="text/x-handlebars" id="recipients/new">
+  <form>
+    <ul>
+      <li>
+        <label for="full_name">Full Name</label>
+        {{view Ember.TextField valueBinding="fullName" name="full_name"}}
+      </li>
+      <li>
+        <label for="phone">Phone Number</label>
+        {{view Ember.TextField valueBinding="phone" name="phone"}}
+      </li>
+      <li>
+        <label for="state">state</label>
+        {{view Ember.Select contentBinding="App.states" valueBinding="state" name="state"}}
+      </li>
+      <li>
+        <label for="gender">gender</label>
+        {{view Ember.Select contentBinding="App.genders" valueBinding="gender" name="gender"}}
+      </li>
+    </ul>
+    <div class="savecancel">
+      <button {{action 'createRecipient'}} class="save">Save</button>
+    </div>
+  </form>
+</script>
